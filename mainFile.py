@@ -40,8 +40,9 @@ async def on_message(message):
         req_data = {'message' : content}
         db.myTable.insert_one(req_data)
         await message.channel.send('process is complete!')
-
-
-
+    if message.content.startswith('!search '):
+        for item in db.myTable.find():
+          await message.channel.send(item['message'])
+    
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
