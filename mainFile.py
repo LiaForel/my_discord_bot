@@ -34,7 +34,9 @@ async def on_message(message):
         await message.channel.send('I owe Rahil a drink!')
     if message.content.startswith('!image'):
         await message.channel.send(file=discord.File('images/meme_one.jpg'))
-    if message.content.startswith('!test'):
+    if message.content.startswith('!test '):
+        # put content anything after space " "in !test
+        content = content[content.find(" ")+1:]
         req_data = {'message' : content}
         db.myTable.insert_one(req_data)
         await message.channel.send('process is complete!')
