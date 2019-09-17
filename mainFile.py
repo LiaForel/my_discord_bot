@@ -46,7 +46,8 @@ async def on_message(message):
       result = ''
       content = content[content.find(" ")+1:] #removing the command line and space in !test
       for item in db.myTable.find():
-        if(content == item):
+        # message as a key
+        if(content == item['message'].lower()):
           exists = True
           result = item['message']
       if (exists == True):
@@ -54,9 +55,5 @@ async def on_message(message):
       else:
         await message.channel.send('The query does not exist')
       
-
-
-
-    
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
