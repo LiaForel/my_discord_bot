@@ -1,1 +1,1 @@
-worker: python deezNuts.py
+worker: python mainFile.py

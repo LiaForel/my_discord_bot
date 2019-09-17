@@ -21,7 +21,7 @@ async def on_message(message):
     content = content.lower()
 
     if message.content.startswith('!type'):
-        await message.channel.send('foo bar')
+        await message.channel.send('back message!')
 
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
