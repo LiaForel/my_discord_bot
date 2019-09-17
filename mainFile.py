@@ -41,8 +41,22 @@ async def on_message(message):
         db.myTable.insert_one(req_data)
         await message.channel.send('process is complete!')
     if message.content.startswith('!search '):
-        for item in db.myTable.find():
-          await message.channel.send(item['message'])
+      # flag 
+      exists = False
+      result = ''
+      content = content[content.find(" ")+1:] #removing the command line and space in !test
+      for item in db.myTable.find():
+        if(content == item):
+          exists = True
+          result = item['message']
+      if (exists == True):
+        await message.channel.send(result)
+      else:
+        await message.channel.send('The query does not exist')
+      
+
+
+
     
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
