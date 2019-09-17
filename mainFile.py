@@ -2,15 +2,10 @@ import discord
 import asyncio
 from pymongo import MongoClient
 
-
 # creating an API instance of an object
 client = discord.Client()
 mongo_client = MongoClient("mongodb+srv://liaForel:admin123@liacluster-dlc08.mongodb.net/test?retryWrites=true&w=majority")
 db = mongo_client.my_database
-
-# MongoClient("mongodb+srv://puistori:gebit%40worker92@incidental-acquisition-caxuy.mongodb.net/test?retryWrites=true&w=majority")
-
-# mongodb+srv://liaForel:admin123@liacluster-dlc08.mongodb.net/test?retryWrites=true&w=majority
 
 @client.event
 # async running multiple things at same time
@@ -20,7 +15,6 @@ async def on_ready():
     print(client.user.id)
     print('------')
     # await discord.Client().change_presence(activity=None, status="Type !commands to get started!", afk=False)
-
 
 @client.event
 async def on_message(message):
@@ -44,7 +38,7 @@ async def on_message(message):
       # flag 
       exists = False
       result = ''
-      content = content[content.find(" ")+1:] #removing the command line and space in !test
+      content = content[content.find(' ')+1:] #removing the command line and space in !test
       for item in db.myTable.find():
         # message as a key
         if(content == item['message'].lower()):
@@ -55,5 +49,28 @@ async def on_message(message):
       else:
         await message.channel.send('The query does not exist')
       
+    if message.content.startswith('!remove '):
+      #remove item from my_database
+      exists = False
+      remove = ''
+      content = content[content.find(' ')+1:]
+      for i in db.myTable.find():
+        if(content == item['message'].lower()):
+          exists = True
+          remove = item['message']
+      if (exists = True):
+        db.myTable.delete_one(remove)
+      else:
+        await message.channel.send('The query does not exist in the data base to be removed')
+        
+
+
+
+
+
+
+      
+      
+# add delete from the database
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
