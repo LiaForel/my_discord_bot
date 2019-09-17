@@ -23,6 +23,11 @@ async def on_message(message):
 
     if message.content.startswith('!type'):
         await message.channel.send('Rahil is awesome!')
+    if message.content.startswith('!drink'):
+        await message.channel.send('I owe Rahil a drink!')
+    if message.content.startswith('!image'):
+        await message.channel.send(file=discord.File('images/meme_one.jpg'))
+
 
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
