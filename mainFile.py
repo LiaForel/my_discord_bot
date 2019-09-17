@@ -5,8 +5,10 @@ from pymongo import MongoClient
 
 # creating an API instance of an object
 client = discord.Client()
-mongo_client = MongoClient("mongodb+srv://liaForel:t!r#48gEHxVZ*mm@liacluster-dlc08.mongodb.net/test?retryWrites=true&w=majority")
+mongo_client = MongoClient("mongodb+srv://liaForel:admin123@liacluster-dlc08.mongodb.net/test?retryWrites=true&w=majority")
 db = mongo_client.my_database
+
+# MongoClient("mongodb+srv://puistori:gebit%40worker92@incidental-acquisition-caxuy.mongodb.net/test?retryWrites=true&w=majority")
 
 # mongodb+srv://liaForel:admin123@liacluster-dlc08.mongodb.net/test?retryWrites=true&w=majority
 
