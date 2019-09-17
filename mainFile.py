@@ -1,5 +1,6 @@
 import discord
 import asyncio
+
 # creating an API instance of an object
 client = discord.Client()
 
@@ -21,7 +22,7 @@ async def on_message(message):
     content = content.lower()
 
     if message.content.startswith('!type'):
-        await message.channel.send('back message!')
+        await message.channel.send('Rahil is awesome!')
 
 
 client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
