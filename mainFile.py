@@ -73,4 +73,4 @@ async def on_message(message):
       
 # add delete from the database
 
-client.run('NjIyMTgyNDI4MDgxMTI3NDQ0.XYBQWQ.nSaCx6FbjXwlboTPpBVQFa9g1gM')
+client.run('KEY')
